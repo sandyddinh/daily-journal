@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 const entrySchema = new Schema({
-    time: { type : Date, default: Date.now },
+    time: { type: Date, require: true},
     feelings: [String],
     care: [String],
     manifestations: [String],
