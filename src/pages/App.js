@@ -2,11 +2,12 @@ import React, { useEffect, useState, useRef } from 'react';
 
 export default function App(props) {
 	const [entries, setEntries] = useState([]);
-	const dateInput = useRef(null);
-	const feelingsInput = useRef(null);
-	const careInput = useRef(null);
-	const manifestationsInput = useRef(null);
-	const goalsInput = useRef(null);
+	const [newEntry, setNewEntry] = useState({});
+	// const dateInput = useRef(null);
+	// const feelingsInput = useRef(null);
+	// const careInput = useRef(null);
+	// const manifestationsInput = useRef(null);
+	// const goalsInput = useRef(null);
 
 	useEffect(() => {
 		(async () => {
@@ -20,13 +21,20 @@ export default function App(props) {
 		})();
 	}, []);
 
+	const handleChange = e => {
+		setNewEntry({
+			...newEntry,
+			[e.target.id]: e.target.value
+		});
+	};
+
 	const handleSubmit = async e => {
 		e.preventDefault();
-		const dateValue = dateInput.current.value;
-		const feelingsValue = feelingsInput.current.value;
-		const careValue = careInput.current.value;
-		const manifestationsValue = manifestationsInput.current.value;
-		const goalsValue = goalsInput.current.value;
+		// const dateValue = dateInput.current.value;
+		// const feelingsValue = feelingsInput.current.value;
+		// const careValue = careInput.current.value;
+		// const manifestationsValue = manifestationsInput.current.value;
+		// const goalsValue = goalsInput.current.value;
 		try {
 			const response = await fetch('/api/journal', {
 				method: 'POST',
@@ -34,11 +42,7 @@ export default function App(props) {
 					'Content-Type': 'application/json'
 				},
 				body: JSON.stringify({
-					date: dateValue,
-					feelings: [feelingsValue],
-					care: [careValue],
-					manifestations: [manifestationsValue],
-					goals: [goalsValue]
+					newEntry
 				})
 			});
 			const data = await response.json();
@@ -63,23 +67,25 @@ export default function App(props) {
 			})}
 			<form onSubmit={handleSubmit}>
 				<label>
-					Date: <input type="text" ref={dateInput} />
+					Date: <input id="date" type="text" onChange={handleChange} />
 				</label>
 				<br />
 				<label>
-					Feelings: <input type="text" ref={feelingsInput} />
+					Feelings: <input id="feelings" type="text" onChange={handleChange} />
+					<input id="feelings" type="text" onChange={handleChange} />
 				</label>
 				<br />
 				<label>
-					Care: <input type="text" ref={careInput} />
+					Care: <input id="care" type="text" onChange={handleChange} />
 				</label>
 				<br />
 				<label>
-					Manifestations: <input type="text" ref={manifestationsInput} />
+					Manifestations:{' '}
+					<input id="manifestations" type="text" onChange={handleChange} />
 				</label>
 				<br />
 				<label>
-					Goals: <input type="text" ref={goalsInput} />
+					Goals: <input id="goals" type="text" onChange={handleChange} />
 				</label>
 				<br />
 				<input type="submit" value="Add New Entry" />
