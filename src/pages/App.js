@@ -1,57 +1,47 @@
 import React, { useEffect, useState, useRef } from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
-import { set } from 'mongoose';
-import entry from '../../models/entry';
 
 export default function App(props) {
 	const [entries, setEntries] = useState([]);
-	// const [newEntry, setNewEntry] = useState({
-	// 	date: '',
-	// 	feelings: '',
-	// 	care: '',
-	// 	manifestations: '',
-	// 	goals: ''
-	// });
-
+	const [entry, setEntry] = useState([]);
+	const [selectedQuote, setSelectedQuote] = useState({});
 	const dateInput = useRef(null);
 	const feelingsInput = useRef(null);
 	const careInput = useRef(null);
 	const manifestationsInput = useRef(null);
 	const goalsInput = useRef(null);
 
-	const [quotes, setQuotes] = useState({});
-	const [selectedQuote, setSelectedQuote] = useState({
-		quote: '',
-		author: ''
-	});
+	// const [quotes, setQuotes] = useState({});
 
 	useEffect(() => {
 		(async () => {
 			try {
 				const response = await fetch('https://type.fit/api/quotes');
 				const data = await response.json();
-				setQuotes(data);
+				const random = Math.floor(Math.random() * data.length);
+				setSelectedQuote({ ...data[random] });
+				// setQuotes(data);
 			} catch (error) {
 				console.error(error);
 			}
 		})();
 	}, []);
 
-	const selectRandomQuote = () => {
-		const random = Math.floor(Math.random() * quotes.length);
-		// setSelectedQuote({
-		// 	...selectedQuote,
-		// 	quote: quotes[random].text,
-		// 	author: quotes[random].author
-		// });
-		return (
-			<div>
-				<h2>{quotes[random].text}</h2>
-				<h3>{quotes[random].author}</h3>
-			</div>
-		);
-	};
+	// const selectRandomQuote = () => {
+	// 	const random = Math.floor(Math.random() * quotes.length);
+	// 	setSelectedQuote({
+	// 		quote: quotes[random].text,
+	// 		author: quotes[random].author
+	// 	});
+	// 	return (
+	// 		<div>
+	// 			<h2>{quotes[random].text}</h2>
+	// 			<h3>{quotes[random].author}</h3>
+	// 		</div>
+	// 	);
+	// };
+
 	useEffect(() => {
 		(async () => {
 			try {
@@ -63,6 +53,29 @@ export default function App(props) {
 			}
 		})();
 	}, []);
+
+	const associateQuote = async () => {
+		try {
+			console.log(selectedQuote.text);
+			console.log(selectedQuote.author);
+			console.log(entry[0]);
+			const response = await fetch('/api/quote', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					quote: selectedQuote.text,
+					author: selectedQuote.author,
+					entryID: entry._id
+				})
+			});
+			const data = await response.json();
+			setEntry({ ...entry, ...data });
+		} catch (error) {
+			console.error(error);
+		}
+	};
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -82,7 +95,11 @@ export default function App(props) {
 				})
 			});
 			const data = await response.json();
+			console.log(data);
+			await setEntry([data]);
+			console.log(entry[0]);
 			setEntries([...entries, data]);
+			associateQuote();
 		} catch (error) {
 			console.error(error);
 		}
@@ -90,7 +107,11 @@ export default function App(props) {
 
 	return (
 		<div className="AppPage">
-			<div>{quotes.length ? selectRandomQuote() : ''}</div>
+			{/* <div>{quotes.length ? selectRandomQuote() : ''}</div> */}
+			<div>
+				{selectedQuote.text} - {selectedQuote.author}
+			</div>
+			<div>TEST: {entry[0]?.length ? entry : ''} </div>
 			<form onSubmit={handleSubmit}>
 				<label>
 					Date:
