@@ -3,44 +3,15 @@ import moment from 'moment';
 import { Link } from 'react-router-dom';
 
 export default function App(props) {
-	const [entries, setEntries] = useState([]);
 	const [entry, setEntry] = useState([]);
 	const [selectedQuote, setSelectedQuote] = useState({});
+    const [deleted, setDeleted] = useState(false);
+
 	const dateInput = useRef(null);
 	const feelingsInput = useRef(null);
 	const careInput = useRef(null);
 	const manifestationsInput = useRef(null);
 	const goalsInput = useRef(null);
-
-	// const [quotes, setQuotes] = useState({});
-
-	useEffect(() => {
-		(async () => {
-			try {
-				const response = await fetch('https://type.fit/api/quotes');
-				const data = await response.json();
-				const random = Math.floor(Math.random() * data.length);
-				setSelectedQuote({ ...data[random] });
-				// setQuotes(data);
-			} catch (error) {
-				console.error(error);
-			}
-		})();
-	}, []);
-
-	// const selectRandomQuote = () => {
-	// 	const random = Math.floor(Math.random() * quotes.length);
-	// 	setSelectedQuote({
-	// 		quote: quotes[random].text,
-	// 		author: quotes[random].author
-	// 	});
-	// 	return (
-	// 		<div>
-	// 			<h2>{quotes[random].text}</h2>
-	// 			<h3>{quotes[random].author}</h3>
-	// 		</div>
-	// 	);
-	// };
 
 	useEffect(() => {
 		(async () => {
@@ -52,30 +23,8 @@ export default function App(props) {
 				console.error(error);
 			}
 		})();
-	}, []);
+	}, [entry, didDelete]);
 
-	const associateQuote = async () => {
-		try {
-			console.log(selectedQuote.text);
-			console.log(selectedQuote.author);
-			console.log(entry[0]);
-			const response = await fetch('/api/quote', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					quote: selectedQuote.text,
-					author: selectedQuote.author,
-					entryID: entry._id
-				})
-			});
-			const data = await response.json();
-			setEntry({ ...entry, ...data });
-		} catch (error) {
-			console.error(error);
-		}
-	};
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -91,8 +40,7 @@ export default function App(props) {
 					feelings: feelingsInput.current.value,
 					care: careInput.current.value,
 					manifestations: manifestationsInput.current.value,
-					goals: goalsInput.current.value,
-					quote: selectedQuote
+					goals: goalsInput.current.value
 				})
 			});
 			const data = await response.json();
@@ -100,7 +48,7 @@ export default function App(props) {
 			await setEntry([data]);
 			console.log(entry[0]);
 			setEntries([...entries, data]);
-			// associateQuote();
+			associateQuote();
 		} catch (error) {
 			console.error(error);
 		}
