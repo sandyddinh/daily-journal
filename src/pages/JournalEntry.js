@@ -12,6 +12,7 @@ export default function App(props) {
 		(async () => {
 			try {
 				const response = await fetch(`/api/journal/${props.match.params.id}`);
+				console.log(props);
 				const data = await response.json();
 				setEntry(data);
 				setFeelings(data.feelings);
@@ -29,38 +30,38 @@ export default function App(props) {
 			{entry.time ? moment(entry.time).format('MMMM Do YYYY') : ''} <br />
 			<h4>Today I am feeling..</h4>
 			<ul>
-				{entry.feelings !== ''
+				{feelings?.includes(',')
 					? feelings.split(',').map(item => {
 							return <li key={item}>{item}</li>;
 					  })
-					: ''}
+					: feelings}
 			</ul>
 			<br />
 			<h4>How I'm taking care of myself..</h4>
 			<ul>
-				{entry.care !== ''
+				{care?.includes(',')
 					? care.split(',').map(item => {
 							return <li key={item}>{item}</li>;
 					  })
-					: ''}
+					: care}
 			</ul>
 			<br />
 			<h4>What I'm manifesting.. </h4>
 			<ul>
-				{entry.manifestations !== ''
+				{manifestations?.includes(',')
 					? manifestations.split(',').map(item => {
 							return <li key={item}>{item}</li>;
 					  })
-					: ''}
+					: manifestations}
 			</ul>
 			<br />
 			<h4>My future goals..</h4>
 			<ul>
-				{entry.goals !== ''
+				{goals?.includes(',')
 					? goals.split(',').map(item => {
 							return <li key={item}>{item}</li>;
 					  })
-					: ''}
+					: goals}
 			</ul>
 		</div>
 	);

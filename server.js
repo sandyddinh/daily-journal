@@ -26,7 +26,6 @@ app.use(/\.[0-9a-z]+$/i, express.static('public'));
 
 /* Controller Goes Here Remove the tes*/
 app.use('/api/journal/', require('./controllers/entries'));
-app.use('/api/quote/', require('./controllers/quotes'));
 
 /* Controller Ends here */
 //LISTENER

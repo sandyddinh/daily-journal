@@ -36,7 +36,6 @@ entryRouter.get('/', async (req, res) => {
 entryRouter.get('/:id', async (req, res) => {
     try{
         const foundJournalEntry = await Entry.findById(req.params.id);
-        await foundJournalEntry.execPopulate('quote')
         res
           .status(200)
           .json(foundJournalEntry)

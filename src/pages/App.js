@@ -19,7 +19,6 @@ export default function App(props) {
 				const data = await response.json();
 				const random = Math.floor(Math.random() * data.length);
 				setSelectedQuote({ ...data[random] });
-				// setQuotes(data);
 			} catch (error) {
 				console.error(error);
 			}
