@@ -1,16 +1,18 @@
 import React, { useEffect, useState, useRef } from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import { set } from 'mongoose';
+import entry from '../../models/entry';
 
 export default function App(props) {
 	const [entries, setEntries] = useState([]);
-	const [newEntry, setNewEntry] = useState({
-		date: '',
-		feelings: '',
-		care: '',
-		manifestations: '',
-		goals: ''
-	});
+	// const [newEntry, setNewEntry] = useState({
+	// 	date: '',
+	// 	feelings: '',
+	// 	care: '',
+	// 	manifestations: '',
+	// 	goals: ''
+	// });
 
 	const dateInput = useRef(null);
 	const feelingsInput = useRef(null);
@@ -19,6 +21,10 @@ export default function App(props) {
 	const goalsInput = useRef(null);
 
 	const [quotes, setQuotes] = useState({});
+	const [selectedQuote, setSelectedQuote] = useState({
+		quote: '',
+		author: ''
+	});
 
 	useEffect(() => {
 		(async () => {
@@ -34,6 +40,11 @@ export default function App(props) {
 
 	const selectRandomQuote = () => {
 		const random = Math.floor(Math.random() * quotes.length);
+		setSelectedQuote({
+			...selectedQuote,
+			quote: quotes[random].text,
+			author: quotes[random].author
+		});
 		return (
 			<div>
 				<h2>{quotes[random].text}</h2>
@@ -67,7 +78,9 @@ export default function App(props) {
 					feelings: feelingsInput.current.value,
 					care: careInput.current.value,
 					manifestations: manifestationsInput.current.value,
-					goals: goalsInput.current.value
+					goals: goalsInput.current.value,
+					quote: selectedQuote.quote,
+					author: selectedQuote.author
 				})
 			});
 			const data = await response.json();
@@ -80,20 +93,6 @@ export default function App(props) {
 	return (
 		<div className="AppPage">
 			<div>{quotes.length ? selectRandomQuote() : ''}</div>
-			{entries.map(entry => {
-				return (
-					<div key={entry._id}>
-						<Link to={`/${entry._id}`}>
-							{moment(entry.time).format('MMMM Do YYYY')}
-						</Link>{' '}
-						<br />
-						How I'm feeling today.. {entry.feelings} <br />
-						How I'm taking care of myself.. {entry.care} <br />
-						What I'm manifesting.. {entry.manifestations} <br />
-						My future goals.. {entry.goals}
-					</div>
-				);
-			})}
 			<form onSubmit={handleSubmit}>
 				<label>
 					Date:
@@ -120,6 +119,21 @@ export default function App(props) {
 				<br />
 				<input type="submit" value="Add New Entry" />
 			</form>
+
+			{entries.map(entry => {
+				return (
+					<div key={entry._id}>
+						<Link to={`/${entry._id}`}>
+							{moment(entry.time).format('MMMM Do YYYY')}
+						</Link>{' '}
+						<br />
+						How I'm feeling today.. {entry.feelings} <br />
+						How I'm taking care of myself.. {entry.care} <br />
+						What I'm manifesting.. {entry.manifestations} <br />
+						My future goals.. {entry.goals}
+					</div>
+				);
+			})}
 		</div>
 	);
 }
