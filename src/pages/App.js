@@ -40,11 +40,11 @@ export default function App(props) {
 
 	const selectRandomQuote = () => {
 		const random = Math.floor(Math.random() * quotes.length);
-		setSelectedQuote({
-			...selectedQuote,
-			quote: quotes[random].text,
-			author: quotes[random].author
-		});
+		// setSelectedQuote({
+		// 	...selectedQuote,
+		// 	quote: quotes[random].text,
+		// 	author: quotes[random].author
+		// });
 		return (
 			<div>
 				<h2>{quotes[random].text}</h2>
@@ -78,9 +78,7 @@ export default function App(props) {
 					feelings: feelingsInput.current.value,
 					care: careInput.current.value,
 					manifestations: manifestationsInput.current.value,
-					goals: goalsInput.current.value,
-					quote: selectedQuote.quote,
-					author: selectedQuote.author
+					goals: goalsInput.current.value
 				})
 			});
 			const data = await response.json();

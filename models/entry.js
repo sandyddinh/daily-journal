@@ -7,7 +7,7 @@ const entrySchema = new Schema(
 		care: String,
 		manifestations: String,
 		goals: String,
-		quote: [{ type: Schema.Types.ObjectId, ref: 'Quote'}]
+		quote: [{ type: Schema.Types.ObjectId, ref: 'Quote' }]
 	},
 	{
 		timestamps: true
