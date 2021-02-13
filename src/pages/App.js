@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 export default function App(props) {
 	const [entries, setEntries] = useState([]);
@@ -82,7 +83,10 @@ export default function App(props) {
 			{entries.map(entry => {
 				return (
 					<div key={entry._id}>
-						{moment(entry.time).format('MMMM Do YYYY')} <br />
+						<Link to={`/${entry._id}`}>
+							{moment(entry.time).format('MMMM Do YYYY')}
+						</Link>{' '}
+						<br />
 						How I'm feeling today.. {entry.feelings} <br />
 						How I'm taking care of myself.. {entry.care} <br />
 						What I'm manifesting.. {entry.manifestations} <br />
