@@ -12,8 +12,6 @@ export default function App(props) {
 	const manifestationsInput = useRef(null);
 	const goalsInput = useRef(null);
 
-	// const [quotes, setQuotes] = useState({});
-
 	useEffect(() => {
 		(async () => {
 			try {
@@ -28,20 +26,6 @@ export default function App(props) {
 		})();
 	}, []);
 
-	// const selectRandomQuote = () => {
-	// 	const random = Math.floor(Math.random() * quotes.length);
-	// 	setSelectedQuote({
-	// 		quote: quotes[random].text,
-	// 		author: quotes[random].author
-	// 	});
-	// 	return (
-	// 		<div>
-	// 			<h2>{quotes[random].text}</h2>
-	// 			<h3>{quotes[random].author}</h3>
-	// 		</div>
-	// 	);
-	// };
-
 	useEffect(() => {
 		(async () => {
 			try {
@@ -53,29 +37,6 @@ export default function App(props) {
 			}
 		})();
 	}, []);
-
-	const associateQuote = async () => {
-		try {
-			console.log(selectedQuote.text);
-			console.log(selectedQuote.author);
-			console.log(entry[0]);
-			const response = await fetch('/api/quote', {
-				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json'
-				},
-				body: JSON.stringify({
-					quote: selectedQuote.text,
-					author: selectedQuote.author,
-					entryID: entry._id
-				})
-			});
-			const data = await response.json();
-			setEntry({ ...entry, ...data });
-		} catch (error) {
-			console.error(error);
-		}
-	};
 
 	const handleSubmit = async e => {
 		e.preventDefault();
@@ -100,7 +61,6 @@ export default function App(props) {
 			await setEntry([data]);
 			console.log(entry[0]);
 			setEntries([...entries, data]);
-			// associateQuote();
 		} catch (error) {
 			console.error(error);
 		}
@@ -108,7 +68,6 @@ export default function App(props) {
 
 	return (
 		<div className="AppPage">
-			{/* <div>{quotes.length ? selectRandomQuote() : ''}</div> */}
 			<div>
 				{selectedQuote.text} - {selectedQuote.author}
 			</div>
