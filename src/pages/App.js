@@ -52,13 +52,6 @@ export default function App(props) {
 		})();
 	}, []);
 
-	const handleChange = e => {
-		setNewEntry({
-			...newEntry,
-			...{ [e.target.id]: e.target.value }
-		});
-	};
-
 	const handleSubmit = async e => {
 		e.preventDefault();
 		const dateValue = dateInput.current.value;
