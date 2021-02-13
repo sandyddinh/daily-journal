@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function App(props) {
 	const [entries, setEntries] = useState([]);
-	const [entry, setEntry] = useState([]);
+	// const [entry, setEntry] = useState([]);
 	const [selectedQuote, setSelectedQuote] = useState({});
 	const dateInput = useRef(null);
 	const feelingsInput = useRef(null);
@@ -56,9 +56,7 @@ export default function App(props) {
 				})
 			});
 			const data = await response.json();
-			console.log(data);
-			await setEntry([data]);
-			console.log(entry[0]);
+			// await setEntry([data]);
 			setEntries([...entries, data]);
 		} catch (error) {
 			console.error(error);
@@ -70,7 +68,6 @@ export default function App(props) {
 			<div>
 				{selectedQuote.text} - {selectedQuote.author}
 			</div>
-			<div>TEST: {entry[0]?.length ? entry : ''} </div>
 			<form onSubmit={handleSubmit}>
 				<label>
 					Date:

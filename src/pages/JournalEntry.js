@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 export default function App(props) {
 	const [entry, setEntry] = useState([]);
@@ -28,6 +29,9 @@ export default function App(props) {
 	return (
 		<div className="show-journal-entry">
 			{entry.time ? moment(entry.time).format('MMMM Do YYYY') : ''} <br />
+			<Link to={`/${entry._id}/edit`}>
+				<button>Update Journal Entry</button>
+			</Link>
 			<h4>Today I am feeling..</h4>
 			<ul>
 				{feelings?.includes(',')
