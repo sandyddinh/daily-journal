@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function App(props) {
 	const [entry, setEntry] = useState([]);
+	const [quote, setQuote] = useState({});
 	const [feelings, setFeelings] = useState('');
 	const [care, setCare] = useState('');
 	const [manifestations, setManifestations] = useState('');
@@ -13,13 +14,14 @@ export default function App(props) {
 		(async () => {
 			try {
 				const response = await fetch(`/api/journal/${props.match.params.id}`);
-				console.log(props);
 				const data = await response.json();
 				setEntry(data);
+				setQuote(data.quote[0]);
 				setFeelings(data.feelings);
 				setCare(data.care);
 				setManifestations(data.manifestations);
 				setGoals(data.goals);
+				console.log(data.quote[0]);
 			} catch (error) {
 				console.error(error);
 			}
@@ -29,6 +31,8 @@ export default function App(props) {
 	return (
 		<div className="show-journal-entry">
 			{entry.time ? moment(entry.time).format('MMMM Do YYYY') : ''} <br />
+			<h2>{Object.keys(quote) ? quote.text : ''}</h2>
+			<h3>{Object.keys(quote) ? quote.author : ''}</h3>
 			<Link to={`/${entry._id}/edit`}>
 				<button>Update Journal Entry</button>
 			</Link>
