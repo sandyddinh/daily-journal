@@ -7,8 +7,8 @@ export default function App(props) {
 	const [entries, setEntries] = useState([]);
 	// const [entry, setEntry] = useState([]);
 	const [selectedQuote, setSelectedQuote] = useState({});
-	const [startDate, setStartDate] = useState(new Date('2014/02/08'));
-	const [endDate, setEndDate] = useState(new Date('2014/02/10'));
+	const [startDate, setStartDate] = useState(new Date('2021/01/01'));
+	const [endDate, setEndDate] = useState(new Date('2021/02/28'));
 	const dateInput = useRef(null);
 	const feelingsInput = useRef(null);
 	const careInput = useRef(null);
@@ -114,20 +114,29 @@ export default function App(props) {
 				minDate={startDate}
 			/>
 
-			{entries.map(entry => {
-				return (
-					<div key={entry._id}>
-						<Link to={`/${entry._id}`}>
-							{moment(entry.time).format('MMMM Do YYYY')}
-						</Link>{' '}
-						<br />
-						How I'm feeling today.. {entry.feelings} <br />
-						How I'm taking care of myself.. {entry.care} <br />
-						What I'm manifesting.. {entry.manifestations} <br />
-						My future goals.. {entry.goals}
-					</div>
-				);
-			})}
+			{entries
+				.filter(entry => {
+					return (
+						moment(entry.time).format('MM/DD/YYYY') >=
+							moment(startDate).format('MM/DD/YYYY') &&
+						moment(entry.time).format('MM/DD/YYYY') <=
+							moment(endDate).format('MM/DD/YYYY')
+					);
+				})
+				.map(entry => {
+					return (
+						<div key={entry._id}>
+							<Link to={`/${entry._id}`}>
+								{moment(entry.time).format('MMMM Do YYYY')}
+							</Link>{' '}
+							<br />
+							How I'm feeling today.. {entry.feelings} <br />
+							How I'm taking care of myself.. {entry.care} <br />
+							What I'm manifesting.. {entry.manifestations} <br />
+							My future goals.. {entry.goals}
+						</div>
+					);
+				})}
 		</div>
 	);
 }
