@@ -1,11 +1,14 @@
 import React, { useEffect, useState, useRef } from 'react';
 import moment from 'moment';
 import { Link } from 'react-router-dom';
+import DatePicker from 'react-datepicker';
 
 export default function App(props) {
 	const [entries, setEntries] = useState([]);
 	// const [entry, setEntry] = useState([]);
 	const [selectedQuote, setSelectedQuote] = useState({});
+	const [startDate, setStartDate] = useState(new Date('2014/02/08'));
+	const [endDate, setEndDate] = useState(new Date('2014/02/10'));
 	const dateInput = useRef(null);
 	const feelingsInput = useRef(null);
 	const careInput = useRef(null);
@@ -94,6 +97,22 @@ export default function App(props) {
 				<br />
 				<input type="submit" value="Add New Entry" />
 			</form>
+
+			<DatePicker
+				selected={startDate}
+				onChange={date => setStartDate(date)}
+				selectsStart
+				startDate={startDate}
+				endDate={endDate}
+			/>
+			<DatePicker
+				selected={endDate}
+				onChange={date => setEndDate(date)}
+				selectsEnd
+				startDate={startDate}
+				endDate={endDate}
+				minDate={startDate}
+			/>
 
 			{entries.map(entry => {
 				return (
