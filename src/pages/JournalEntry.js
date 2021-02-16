@@ -34,7 +34,7 @@ export default function App(props) {
 			<h2>{Object.keys(quote) ? quote.text : ''}</h2>
 			<h3>{Object.keys(quote) ? quote.author : ''}</h3>
 			<Link to={`/${entry._id}/edit`}>
-				<button>Update Journal Entry</button>
+				<button className="update-button">Update Journal Entry</button>
 			</Link>
 			<h4>Today I am feeling..</h4>
 			<ul>

@@ -1,10 +1,71 @@
 // @import "react-datepicker/dist/react-datepicker.css";
-@import url("https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700");
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+//TITLE
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,900&display=swap');
+//HEADLINE
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap');
+// CAPS
 @import "reset";
 @import "grid";
 
+  $brown: #cb997e;
+  $tan: #ddbea9;
+  $beige: #ffe8d6;
+  $green: #b7b7a4;
+
 body {
+  font-family: 'Playfair Display', serif;
   font-size: 16px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  box-sizing: border-box;
+  h1 {
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 36px;
+    text-transform: lowercase;
+    margin: 20px;
+    color: $green;
+  }
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    text-align: center;
+  }
+  .new-button, .update-button, .delete-button, .submit-new-button {
+    font-family: 'Poppins', sans-serif;
+    border: none;
+    background-color: $tan;
+    color: white;
+    text-align: center;
+    vertical-align: middle;
+    text-transform: uppercase;
+    font-weight: 400;
+    font-size: 18px;
+    height: 50px;
+    width: 300px;
+    border-radius: 2px; 
+    margin: 0 auto;
+  }
+  .new-button:hover, .update-button:hover, .delete-button:hover, .submit-new-button:hover {
+    opacity: 0.3;
+  }
+  .update-button, .delete-button, .submit-new-button {
+    font-size: 12px;
+    height: 35px;
+    width: 150px;
+    border-radius: 2px; 
+  }
+  .update-button:hover, .delete-button:hover, .submit-new-button:hover {
+    opacity: 0.3;
+  }
+  input[type="submit"]{
+    all: unset;
+  }
+
 }
 
 .NavBar {
@@ -27,5 +88,12 @@ body {
 }
 
 .AppPage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.AppPage {
 
 }
+

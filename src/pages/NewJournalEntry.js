@@ -99,7 +99,9 @@ export default function App(props) {
 					Goals: <input id="goals" type="text" ref={goalsInput} />
 				</label>
 				<br />
-				<input type="submit" value="Add New Entry" />
+				<button className="submit-new-button">
+					<input type="submit" value="Add New Entry" />
+				</button>
 			</form>
 
 			{/* <DatePicker

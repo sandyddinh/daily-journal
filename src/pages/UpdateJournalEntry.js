@@ -77,7 +77,9 @@ export default function App(props) {
 	return (
 		<div className="show-journal-entry">
 			{entry.time ? moment(entry.time).format('MMMM Do YYYY') : ''} <br />
-			<button onClick={handleDelete}>Delete Journal Entry</button>
+			<button onClick={handleDelete} className="delete-button">
+				Delete Journal Entry
+			</button>
 			<h4>Today I am feeling..</h4>
 			<ul>
 				{feelings?.includes(',')
@@ -149,7 +151,9 @@ export default function App(props) {
 					<input id="goals" type="text" ref={goalsInput} defaultValue={goals} />
 				</label>
 				<br />
-				<input type="submit" value="Update Journal Entry" />
+				<button className="delete-button">
+					<input type="submit" value="Update Journal Entry" />
+				</button>
 			</form>
 		</div>
 	);

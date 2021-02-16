@@ -68,7 +68,15 @@ export default function App(props) {
 
 	return (
 		<div className="AppPage">
-			<Link to={`/new`}>New Journal Entry</Link>
+			<h1>My Daily</h1>
+			<p className="headline">
+				Start your day with gratitude, happiness and positive affirmation.
+			</p>
+			<hr />
+
+			<Link to={`/new`}>
+				<button className="new-button">New Journal Entry</button>
+			</Link>
 			<div>
 				{selectedQuote.text} - {selectedQuote.author}
 			</div>
