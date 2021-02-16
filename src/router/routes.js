@@ -5,6 +5,7 @@ import Home from '../pages/Home';
 import Contact from '../pages/Contact';
 import JournalEntry from '../pages/JournalEntry';
 import UpdateJournalEntry from '../pages/UpdateJournalEntry';
+import NewJournalEntry from '../pages/NewJournalEntry';
 
 const routes = [
 	{
@@ -21,6 +22,11 @@ const routes = [
 		Component: About,
 		key: 'About',
 		path: '/about'
+	},
+	{
+		Component: NewJournalEntry,
+		key: 'NewJournalEntry',
+		path: '/new'
 	},
 	{
 		Component: UpdateJournalEntry,

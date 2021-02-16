@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 
 export default function App(props) {
 	const [entries, setEntries] = useState([]);
-	// const [entry, setEntry] = useState([]);
+	const [entry, setEntry] = useState({});
 	const [selectedQuote, setSelectedQuote] = useState({});
 	const [startDate, setStartDate] = useState(new Date('2021/01/01'));
 	const [endDate, setEndDate] = useState(new Date('2021/02/28'));
@@ -59,16 +59,19 @@ export default function App(props) {
 				})
 			});
 			const data = await response.json();
-			// await setEntry([data]);
+			await setEntry({ ...data });
 			setEntries([...entries, data]);
 		} catch (error) {
 			console.error(error);
+		} finally {
+			console.log(entry);
+			console.log(entry._id);
+			// await window.location.assign(`/${entry._id}`);
 		}
 	};
 
 	return (
-		<div className="AppPage">
-			<Link to={`/new`}>New Journal Entry</Link>
+		<div className="new-entry-page">
 			<div>
 				{selectedQuote.text} - {selectedQuote.author}
 			</div>
@@ -99,7 +102,7 @@ export default function App(props) {
 				<input type="submit" value="Add New Entry" />
 			</form>
 
-			<DatePicker
+			{/* <DatePicker
 				selected={startDate}
 				onChange={date => setStartDate(date)}
 				selectsStart
@@ -113,8 +116,8 @@ export default function App(props) {
 				startDate={startDate}
 				endDate={endDate}
 				minDate={startDate}
-			/>
-
+			/> */}
+			{/* 
 			{entries
 				.filter(entry => {
 					return (
@@ -137,7 +140,7 @@ export default function App(props) {
 							My future goals.. {entry.goals}
 						</div>
 					);
-				})}
+				})} */}
 		</div>
 	);
 }
