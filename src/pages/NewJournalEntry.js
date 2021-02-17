@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import moment from 'moment';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import DatePicker from 'react-datepicker';
 
 export default function App(props) {
@@ -63,10 +63,6 @@ export default function App(props) {
 			setEntries([...entries, data]);
 		} catch (error) {
 			console.error(error);
-		} finally {
-			console.log(entry);
-			console.log(entry._id);
-			// await window.location.assign(`/${entry._id}`);
 		}
 	};
 
@@ -78,7 +74,12 @@ export default function App(props) {
 			<form onSubmit={handleSubmit}>
 				<label>
 					Date:
-					<input id="time" type="text" ref={dateInput} />
+					<input
+						id="time"
+						type="text"
+						ref={dateInput}
+						defaultValue={moment().format('MM/DD/YYYY')}
+					/>
 				</label>
 				<br />
 				<label>
@@ -103,6 +104,8 @@ export default function App(props) {
 					<input type="submit" value="Add New Entry" />
 				</button>
 			</form>
+
+			{entry._id ? <Redirect to={`/${entry._id}`} /> : null}
 
 			{/* <DatePicker
 				selected={startDate}
