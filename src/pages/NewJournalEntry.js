@@ -67,13 +67,12 @@ export default function App(props) {
 	};
 
 	return (
-		<div className="new-entry-page">
-			<div>
-				{selectedQuote.text} - {selectedQuote.author}
+		<div className="NewPage">
+			<div className="quote">
+				{selectedQuote.text} <br />- {selectedQuote.author}
 			</div>
 			<form onSubmit={handleSubmit}>
 				<label>
-					Date:
 					<input
 						id="time"
 						type="text"
@@ -83,21 +82,23 @@ export default function App(props) {
 				</label>
 				<br />
 				<label>
-					Feelings:
+					<span className="input-label">Feelings:</span>
 					<input id="feelings" type="text" ref={feelingsInput} />
 				</label>
 				<br />
 				<label>
-					Care: <input id="care" type="text" ref={careInput} />
+					<span className="input-label">Care:</span>
+					<input id="care" type="text" ref={careInput} />
 				</label>
 				<br />
 				<label>
-					Manifestations:
+					<span className="input-label">Manifestations:</span>
 					<input id="manifestations" type="text" ref={manifestationsInput} />
 				</label>
 				<br />
 				<label>
-					Goals: <input id="goals" type="text" ref={goalsInput} />
+					<span className="input-label">Goals:</span>
+					<input id="goals" type="text" ref={goalsInput} />
 				</label>
 				<br />
 				<button className="submit-new-button">

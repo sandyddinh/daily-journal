@@ -20,7 +20,7 @@ body {
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  h1 {
+  h1, .quote {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-weight: 900;
@@ -29,6 +29,11 @@ body {
     text-transform: lowercase;
     margin: 20px;
     color: $green;
+  }
+  .quote {
+    font-size: 18px;
+    font-weight: 400;
+    color: $brown;
   }
   .headline {
     font-family: 'Playfair Display', serif;
@@ -113,15 +118,30 @@ body {
   }
 }
 
-.AboutPage {
-
+.NewPage {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-self: center;
+  width: 60vw;
+  height: 50vh;
+  text-align: center;
+  border: 2px solid red;
+  .input-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  form {
+    
+  }
 }
 
 .AppPage {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  vertical-align: -30%;
+  // vertical-align: -30%;
   width: 80vw;
   height: 100vh;
   overflow: none;
