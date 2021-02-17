@@ -35,7 +35,7 @@ body {
     font-size: 20px;
     text-align: center;
   }
-  .new-button, .update-button, .delete-button, .submit-new-button {
+  .new-button, .view-journal-button, .update-button, .delete-button, .submit-new-button {
     font-family: 'Poppins', sans-serif;
     border: none;
     background-color: $tan;
@@ -48,9 +48,10 @@ body {
     height: 50px;
     width: 300px;
     border-radius: 2px; 
-    margin: 0 auto;
+    margin: 5px;
+    display: inline-block;
   }
-  .new-button:hover, .update-button:hover, .delete-button:hover, .submit-new-button:hover {
+  .new-button:hover, .view-journal-button:hover, .update-button:hover, .delete-button:hover, .submit-new-button:hover {
     opacity: 0.3;
   }
   .update-button, .delete-button, .submit-new-button {
@@ -91,6 +92,12 @@ body {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  vertical-align: middle;
+  width: 80vw;
+  height: 100vh;
+  overflow: none;
+  text-align: center;
+  
 }
 
 .AppPage {

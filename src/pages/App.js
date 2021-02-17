@@ -12,11 +12,12 @@ export default function App(props) {
 			</p>
 			<hr />
 
-			<Link to={`/new`}>
-				<button className="new-button">New Journal Entry</button>
-			</Link>
 			<Link to={`/journal`}>
 				<button className="view-journal-button">View Journal</button>
+			</Link>
+
+			<Link to={`/new`}>
+				<button className="new-button">New Journal Entry</button>
 			</Link>
 		</div>
 	);
