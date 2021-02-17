@@ -77,6 +77,9 @@ export default function App(props) {
 			<Link to={`/new`}>
 				<button className="new-button">New Journal Entry</button>
 			</Link>
+			<Link to={`/journal`}>
+				<button className="view-journal-button">View Journal</button>
+			</Link>
 			<div>
 				{selectedQuote.text} - {selectedQuote.author}
 			</div>
