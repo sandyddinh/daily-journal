@@ -6,6 +6,12 @@ import DatePicker from 'react-datepicker';
 export default function App(props) {
 	return (
 		<div className="AppPage">
+			<video preload="" autoPlay="" muted="" playsInline="" loop="">
+				<source
+					src="https://res.cloudinary.com/dxuoqqfve/video/upload/v1613527180/green-hillside-video_vribtu.mov"
+					type="video/mov"
+				/>
+			</video>
 			<h1>My Daily</h1>
 			<p className="headline">
 				Start your day with gratitude, happiness and positive affirmation.
