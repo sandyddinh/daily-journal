@@ -118,6 +118,7 @@ body {
 }
 
 .NewPage, .JournalEntryPage {
+  // background: url('https://res.cloudinary.com/dxuoqqfve/image/upload/v1613619602/ivan-gromov-Y3vPEuNlf7w-unsplash_1_xftm5m.jpg');
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -125,8 +126,8 @@ body {
   // height: 50vh;
   margin: 50px 0 0 0;
   text-align: center;
-  background-color: $beige;
-  border: 1px solid $brown;
+  background-color: #e2d5cd;
+  // border: 1px solid $brown;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   .top{
     // border: 2px solid green;
