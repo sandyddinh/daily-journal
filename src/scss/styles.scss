@@ -1,6 +1,4 @@
 // @import "react-datepicker/dist/react-datepicker.css";
-@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
-//TITLE
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,900&display=swap');
 //HEADLINE
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap');
@@ -20,7 +18,7 @@ body {
   display: flex;
   justify-content: center;
   box-sizing: border-box;
-  h1, .quote {
+  h1, .quote, .date {
     text-align: center;
     font-family: 'Playfair Display', serif;
     font-weight: 900;
@@ -119,7 +117,7 @@ body {
   // }
 }
 
-.NewPage {
+.NewPage, .JournalEntryPage {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -160,15 +158,18 @@ body {
     text-transform: uppercase;
     font-size: 12px;
   }
-  input, textarea, #time {
+  input, textarea, #time, .input-area {
+    display: inline-block;
     border: 2px dotted grey;
     background-color: rgb(235, 232, 232);
     border-radius: 10px; 
     height: 60px;
     width: 300px;
     font-size: 12px;
+    text-align: left;
+    padding: 5px;
   }
-  textarea{
+  textarea, .input-area{
     resize: none;
     overflow: auto;
   }
@@ -177,12 +178,22 @@ body {
     height: 50px;
     width: 120px;
   }
-  #feelings{
+  #feelings, .feelings{
     height: 250px;
     width: 300px;
     overflow: scroll;
   }
-  
+
+  p, ul {
+    padding: 0;
+    margin: 0;
+}
+ 
+}
+
+.JournalEntryPage {
+  font-family: 'Playfair Display', serif;
+  font-size: 12px;
 }
 
 .AppPage {
@@ -197,5 +208,4 @@ body {
   text-align: center;
   background: url('https://res.cloudinary.com/dxuoqqfve/video/upload/v1613527180/green-hillside-video_vribtu.mov');
 }
-
 
