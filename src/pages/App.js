@@ -6,10 +6,10 @@ import DatePicker from 'react-datepicker';
 export default function App(props) {
 	return (
 		<div className="AppPage">
-			<video preload="" autoPlay="" muted="" playsInline="" loop="">
+			<video autoPlay muted loop controls>
 				<source
-					src="https://res.cloudinary.com/dxuoqqfve/video/upload/v1613527180/green-hillside-video_vribtu.mov"
-					type="video/mov"
+					src="https://res.cloudinary.com/dxuoqqfve/video/upload/v1613608880/ezgif.com-gif-maker_pqsjh6.mp4"
+					type="video/mp4"
 				/>
 			</video>
 			<h1>My Daily</h1>

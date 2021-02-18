@@ -31,9 +31,10 @@ body {
     color: $green;
   }
   .quote {
-    font-size: 18px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
     font-weight: 400;
-    color: $brown;
+    color: black;
   }
   .headline {
     font-family: 'Playfair Display', serif;
@@ -103,45 +104,93 @@ body {
     color: $tan;
     text-decoration: none;
   }
-  video {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    /* The following will size the video to fit the full container. Not necessary, just nice.*/
-    min-width: 100%;
-    min-height: 100%;
-    -webkit-transform: translate(-50%,-50%);
-    -moz-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-    z-index: 0;
-  }
+  // video {
+  //   position: absolute;
+  //   left: 50%;
+  //   top: 50%;
+  //   /* The following will size the video to fit the full container. Not necessary, just nice.*/
+  //   min-width: 100%;
+  //   min-height: 100%;
+  //   -webkit-transform: translate(-50%,-50%);
+  //   -moz-transform: translate(-50%,-50%);
+  //   -ms-transform: translate(-50%,-50%);
+  //   transform: translate(-50%,-50%);
+  //   z-index: 0;
+  // }
 }
 
 .NewPage {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-self: center;
   width: 60vw;
-  height: 50vh;
+  // height: 50vh;
+  margin: 50px 0 0 0;
   text-align: center;
-  border: 2px solid red;
-  .input-label {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    text-transform: uppercase;
-  }
-  form {
+  background-color: $beige;
+  border: 1px solid $brown;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  .top{
+    // border: 2px solid green;
     
   }
+  .middle{
+    // border: 2px solid blue;
+    display: flex;
+    .col1 {
+      order: 1;
+      // border: 2px solid yellow;
+      width: 50%;
+    }
+    .col2 {
+      order: 2;
+      // border: 2px solid orange;
+      width: 50%;
+    }
+  }
+  .bottom{
+    // border: 2px solid purple;
+  }
+  // form {
+  //   display: flex;
+  // }
+  .input-label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+  }
+  input, textarea, #time {
+    border: 2px dotted grey;
+    background-color: rgb(235, 232, 232);
+    border-radius: 10px; 
+    height: 60px;
+    width: 300px;
+    font-size: 12px;
+  }
+  textarea{
+    resize: none;
+    overflow: auto;
+  }
+  #time{
+    text-align: center;
+    height: 50px;
+    width: 120px;
+  }
+  #feelings{
+    height: 250px;
+    width: 300px;
+    overflow: scroll;
+  }
+  
 }
 
 .AppPage {
+  border: 2px solid red;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  // vertical-align: -30%;
+  vertical-align: middle;
   width: 80vw;
   height: 100vh;
   overflow: none;
