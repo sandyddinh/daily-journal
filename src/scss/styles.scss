@@ -34,11 +34,7 @@ body {
     font-weight: 400;
     color: black;
   }
-  .headline {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    text-align: center;
-  }
+  
   .new-button, .view-journal-button, .update-button, .delete-button, .submit-new-button {
     font-family: 'Poppins', sans-serif;
     border: none;
@@ -102,19 +98,7 @@ body {
     color: $tan;
     text-decoration: none;
   }
-  // video {
-  //   position: absolute;
-  //   left: 50%;
-  //   top: 50%;
-  //   /* The following will size the video to fit the full container. Not necessary, just nice.*/
-  //   min-width: 100%;
-  //   min-height: 100%;
-  //   -webkit-transform: translate(-50%,-50%);
-  //   -moz-transform: translate(-50%,-50%);
-  //   -ms-transform: translate(-50%,-50%);
-  //   transform: translate(-50%,-50%);
-  //   z-index: 0;
-  // }
+  
 }
 
 .NewPage, .JournalEntryPage {
@@ -198,7 +182,7 @@ body {
 }
 
 .AppPage {
-  border: 2px solid red;
+  // border: 2px solid red;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -208,5 +192,32 @@ body {
   overflow: none;
   text-align: center;
   background: url('https://res.cloudinary.com/dxuoqqfve/video/upload/v1613527180/green-hillside-video_vribtu.mov');
+  box-sizing: border-box;
+  video {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* The following will size the video to fit the full container. Not necessary, just nice.*/
+    // min-width: 100%;
+    // min-height: 100%;
+    width: 80%;
+    height: 80%;
+    -webkit-transform: translate(-50%,-50%);
+    -moz-transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    z-index: 0;
+  }
+  .app-main {
+    position: absolute;
+    left: 25%;
+    top: 50%;
+  }
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+  }
 }
 

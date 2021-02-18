@@ -12,19 +12,20 @@ export default function App(props) {
 					type="video/mp4"
 				/>
 			</video>
-			<h1>My Daily</h1>
-			<p className="headline">
-				Start your day with gratitude, happiness and positive affirmation.
-			</p>
-			<hr />
+			<div className="app-main">
+				<p className="headline">
+					Start your day with gratitude, happiness and positive affirmation.
+				</p>
+				<hr />
 
-			<Link to={`/journal`}>
-				<button className="view-journal-button">View Journal</button>
-			</Link>
+				<Link to={`/journal`}>
+					<button className="view-journal-button">View Journal</button>
+				</Link>
 
-			<Link to={`/new`}>
-				<button className="new-button">New Journal Entry</button>
-			</Link>
+				<Link to={`/new`}>
+					<button className="new-button">New Journal Entry</button>
+				</Link>
+			</div>
 		</div>
 	);
 }
