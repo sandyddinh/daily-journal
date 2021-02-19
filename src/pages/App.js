@@ -16,7 +16,7 @@ export default function App(props) {
 				<p className="headline">
 					Start your day with gratitude, happiness and positive affirmation.
 				</p>
-				<hr />
+				<br />
 
 				<Link to={`/journal`}>
 					<button className="main-view-journal-button">View Journal</button>

@@ -105,7 +105,7 @@ export default function App(props) {
 						})
 						.map(entry => {
 							return (
-								<div key={entry._id}>
+								<div key={entry._id} className="filtered-entries">
 									<Link to={`/${entry._id}`}>
 										{moment(entry.time).format('MM/DD/YYYY')}
 									</Link>

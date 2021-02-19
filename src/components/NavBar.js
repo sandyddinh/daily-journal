@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 const NavBar = props => {
 	return (
 		<nav className="NavBar">
-			<p className="logo">My Daily</p>
+			<a href="/">
+				<p className="logo">My Daily</p>
+			</a>
 			{props.routes
 				.filter(item => !item.path.includes(':'))
 				.map(({ key, path }) => (

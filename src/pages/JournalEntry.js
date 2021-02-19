@@ -21,7 +21,6 @@ export default function App(props) {
 				setCare(data.care);
 				setManifestations(data.manifestations);
 				setGoals(data.goals);
-				console.log(data.quote[0]);
 			} catch (error) {
 				console.error(error);
 			}
@@ -94,7 +93,7 @@ export default function App(props) {
 			</div>
 			<div className="bottom">
 				<Link to={`/${entry._id}/edit`}>
-					<button className="update-button">Update Journal Entry</button>
+					<button className="update-button">Edit</button>
 				</Link>
 			</div>
 		</div>
