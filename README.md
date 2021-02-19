@@ -28,7 +28,7 @@ I started off by defining my model and controllers. Did some testing in Postman 
 
 #### Wireframe
 
-<img src="https://res.cloudinary.com/dxuoqqfve/image/upload/v1613775249/journal/journal-wireframe_p32gp7.pdf" width="70%" >
+<img src="/img/journal-wireframe.pdf" width="70%" >
 
 Color Pallet:
 
