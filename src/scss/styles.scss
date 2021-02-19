@@ -229,6 +229,7 @@ body {
   }
   .month:hover {
     background: $brown;
+    color: #e2d5cd;
   }
   .col2 {
     display: flex;
@@ -239,10 +240,14 @@ body {
     display: inline-block;
     width: 100px;
     height: 35px;
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px 0 rgba(119, 58, 32, 0.2), 0 6px 20px 0 rgba(119, 58, 32, 0.19);
     padding: 5px;
     margin: 0 auto;
+  }
+  .filtered-entries:hover {
+    color: #e2d5cd;
+    background-color: $brown;
   }
 }
 

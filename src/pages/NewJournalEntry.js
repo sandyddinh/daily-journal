@@ -117,7 +117,12 @@ export default function App(props) {
 						<label>
 							<span className="input-label">My goals for today</span>
 							<br />
-							<textarea id="goals" type="text" ref={goalsInput} />
+							<textarea
+								id="goals"
+								type="text"
+								ref={goalsInput}
+								placeholder="be specific"
+							/>
 						</label>
 						<br />
 						<label>
@@ -127,6 +132,7 @@ export default function App(props) {
 								id="manifestations"
 								type="text"
 								ref={manifestationsInput}
+								placeholder="dream big!"
 							/>
 						</label>
 					</div>

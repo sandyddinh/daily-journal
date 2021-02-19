@@ -5,7 +5,7 @@ import DatePicker from 'react-datepicker';
 
 export default function App(props) {
 	const [entries, setEntries] = useState([]);
-	const [startDate, setStartDate] = useState(new Date('2021/01/01'));
+	const [startDate, setStartDate] = useState(new Date('2021/02/01'));
 	const [endDate, setEndDate] = useState(new Date('2021/02/28'));
 
 	useEffect(() => {
@@ -35,7 +35,7 @@ export default function App(props) {
 	return (
 		<div className="JournalPage">
 			<div className="from-to-calendar top">
-				<DatePicker
+				{/* <DatePicker
 					className="date-picker"
 					selected={startDate}
 					onChange={date => setStartDate(date)}
@@ -51,7 +51,7 @@ export default function App(props) {
 					startDate={startDate}
 					endDate={endDate}
 					minDate={startDate}
-				/>
+				/> */}
 			</div>
 			<div className="middle">
 				<div className="month-filter col1">
