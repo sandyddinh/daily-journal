@@ -143,7 +143,6 @@ export default function App(props) {
 			</form>
 
 			{entry._id ? <Redirect to={`/${entry._id}`} /> : null}
-
 		</div>
 	);
 }
