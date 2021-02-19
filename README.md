@@ -28,7 +28,7 @@ I started off by defining my model and controllers. Did some testing in Postman 
 
 #### Wireframe
 
-<img src="/img/journal-wireframe.pdf" width="70%" >
+<img src="/img/journal-wireframe.pdf" width="50%" >
 
 Color Pallet:
 
@@ -73,5 +73,5 @@ I wanted to create a journal form where each category had a dynamic number of in
    { ...
      feelings: ['happy', 'excited', 'joy']}
 
-However, I could not figure out how to reference each input box and add it to the array. After realizing I was spending too much time trying to get this to work, I had to pivot my idea to use one input box per topic. 
+However, I could not figure out how to reference each input box and add it to the array. After realizing I was spending too much time trying to get this to work, I had to pivot my idea to use one input box per section. 
 
