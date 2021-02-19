@@ -1,14 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import moment from 'moment';
-import { Link, Redirect } from 'react-router-dom';
-import DatePicker from 'react-datepicker';
+import { Redirect } from 'react-router-dom';
 
 export default function App(props) {
 	const [entries, setEntries] = useState([]);
 	const [entry, setEntry] = useState({});
 	const [selectedQuote, setSelectedQuote] = useState({});
-	const [startDate, setStartDate] = useState(new Date('2021/01/01'));
-	const [endDate, setEndDate] = useState(new Date('2021/02/28'));
 	const dateInput = useRef(null);
 	const feelingsInput = useRef(null);
 	const careInput = useRef(null);
@@ -147,45 +144,6 @@ export default function App(props) {
 
 			{entry._id ? <Redirect to={`/${entry._id}`} /> : null}
 
-			{/* <DatePicker
-				selected={startDate}
-				onChange={date => setStartDate(date)}
-				selectsStart
-				startDate={startDate}
-				endDate={endDate}
-			/>
-			<DatePicker
-				selected={endDate}
-				onChange={date => setEndDate(date)}
-				selectsEnd
-				startDate={startDate}
-				endDate={endDate}
-				minDate={startDate}
-			/> */}
-			{/* 
-			{entries
-				.filter(entry => {
-					return (
-						moment(entry.time).format('MM/DD/YYYY') >=
-							moment(startDate).format('MM/DD/YYYY') &&
-						moment(entry.time).format('MM/DD/YYYY') <=
-							moment(endDate).format('MM/DD/YYYY')
-					);
-				})
-				.map(entry => {
-					return (
-						<div key={entry._id}>
-							<Link to={`/${entry._id}`}>
-								{moment(entry.time).format('MMMM Do YYYY')}
-							</Link>{' '}
-							<br />
-							How I'm feeling today.. {entry.feelings} <br />
-							How I'm taking care of myself.. {entry.care} <br />
-							What I'm manifesting.. {entry.manifestations} <br />
-							My future goals.. {entry.goals}
-						</div>
-					);
-				})} */}
 		</div>
 	);
 }
