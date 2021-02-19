@@ -33,8 +33,7 @@ export default function App(props) {
 
 	return (
 		<div className="JournalPage">
-			<div className="from-to-calendar top">
-			</div>
+			<div className="from-to-calendar top"></div>
 			<div className="middle">
 				<div className="month-filter col1">
 					<div id="01" className="month" onClick={filterByMonth}>

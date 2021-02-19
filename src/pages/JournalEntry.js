@@ -39,9 +39,6 @@ export default function App(props) {
 					{Object.keys(quote) ? quote.author : 'unknown'}
 				</div>
 			</div>
-
-			{/* <h2>{Object.keys(quote) ? quote.text : ''}</h2>
-			<h3>{Object.keys(quote) ? quote.author : ''}</h3> */}
 			<div className="middle">
 				<div className="col1">
 					<p className="input-label">My Daily Diary</p>
