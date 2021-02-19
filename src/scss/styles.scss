@@ -99,7 +99,7 @@ body {
   
 }
 
-.NewPage, .JournalEntryPage, .JournalPage, .UpdateJournalEntryPage {
+.NewPage, .JournalEntryPage, .JournalPage, .UpdateJournalEntryPage, .AboutPage  {
   // background: url('https://res.cloudinary.com/dxuoqqfve/image/upload/v1613619602/ivan-gromov-Y3vPEuNlf7w-unsplash_1_xftm5m.jpg');
   display: flex;
   justify-content: center;
@@ -287,3 +287,34 @@ body {
   }
 }
 
+.AboutPage {
+  section {
+    display: flex;
+    justify-content: center;
+    margin: 50px;
+  }
+  .sub-section {
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+    font-size: 12px;
+    padding: 20px;
+  }
+  h2{
+    text-transform: uppercase;
+    font-size: 24px;
+  }
+  img {
+    width: 300px;
+    height: 300px;
+    -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+    -moz-animation: fadein 3s; /* Firefox < 16 */
+     -ms-animation: fadein 3s; /* Internet Explorer */
+      -o-animation: fadein 3s; /* Opera < 12.1 */
+         animation: fadein 3s;
+  }
+  @keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+}

@@ -19,7 +19,7 @@ const routes = [
 	},
 	{
 		Component: NewJournalEntry,
-		key: 'NewJournalEntry',
+		key: 'New',
 		path: '/new'
 	},
 	{
@@ -34,7 +34,7 @@ const routes = [
 	},
 	{
 		Component: App,
-		key: 'App',
+		key: 'Home',
 		path: '/'
 	}
 ];
