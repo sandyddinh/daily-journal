@@ -1,7 +1,7 @@
 
 # App Title: 
 
-### App Demo: [add Heroku link]
+### App Demo: [https://react-daily-journal.herokuapp.com/]
 
 ---
 
