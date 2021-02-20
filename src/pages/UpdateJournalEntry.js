@@ -43,7 +43,7 @@ export default function App(props) {
 				}
 			});
 			const data = await response.json();
-			setDeleted(!deleted);
+			// setDeleted(!deleted);
 		} catch (error) {
 			console.error(error);
 		} finally {
