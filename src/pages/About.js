@@ -68,7 +68,7 @@ export default function About(props) {
 						malesuada.
 					</p>
 				</div>
-				<img src="https://res.cloudinary.com/dxuoqqfve/image/upload/v1613770982/journal/carli-jeen-15YDf39RIVc-unsplash_p5fzzz.jpg" />
+				<img src="https://res.cloudinary.com/dxuoqqfve/image/upload/v1613770982/journal/daria-shevtsova-F2WkASk1ELE-unsplash_ltespp.jpg" />
 			</section>
 		</div>
 	);
